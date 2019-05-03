@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Posts</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+</head>
+<div class="nav">
+	<a href="/" class="btn btn-light" role="button" data-toggle="tooltip"
+		data-placement="left" title="Home!"> Home </a>
+</div>
+<h1 align="center">Facebook</h1>
+<body>
+	<div align="center">
+		<form method="post" action="/cGroup">
+			<input type="text" name="name" placeholder="Group Name" size=30 /> <input
+				type="submit" />
+		</form>
+	</div>
+	<div align="center">
+		<ul class="list-inline mx-auto justify-content-center"
+			th:each="data, stat: ${msg}">
+			<li><a th:href="@{groups/{sectionId}(sectionId=${data})}"><p
+						th:text="${data}"></p> </a></li>
+			<a th:href="@{groups/join/{sectionId}(sectionId=${data})}"><p
+					th:text="join"></p> </a>
+		</ul>
+	</div>
+</body>
+</html>

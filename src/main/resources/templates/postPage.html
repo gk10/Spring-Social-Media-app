@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Posts</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+</head>
+<div class="nav">
+	<a href="/" class="btn btn-light" role="button" data-toggle="tooltip"
+		data-placement="left" title="Home!"> Home </a> <a href="/users"
+		class="btn btn-light" role="button" data-toggle="tooltip"
+		data-placement="left" title="Users"> Users </a> <a href="/friends"
+		class="btn btn-light" role="button" data-toggle="tooltip"
+		data-placement="left" title="Friends"> Friends </a> <a href="/groups"
+		class="btn btn-light" role="button" data-toggle="tooltip"
+		data-placement="left" title="Groups"> Groups </a>
+</div>
+<h1 align="center">Facebook</h1>
+
+<body>
+
+	<div align="center">
+		<form method="post" action="/posts">
+			<input type="text" name="task" placeholder="Post" size=30 /> <input
+				type="submit" value="Post" />
+
+
+		</form>
+
+		<form method="post" action="/posts">
+			<input type="text" name="search" placeholder="Search" size=30 /> <input
+				type="submit" value="Search" />
+
+		</form>
+	</div>
+	<div align="center">
+		<ul class="list-inline mx-auto justify-content-center"
+			th:each="data, stat: ${msg}">
+			<li><a
+				th:href="@{users/{sectionId}(sectionId=${data.getName()})}"><p
+						th:text="${data.getName()}"></p> </a>
+				<p th:text="${data.getPost()}"></p>
+				<p th:text="${data.getTime()}"></p></li>
+			<a th:href="@{friend/{sectionId}(sectionId=${data})}"><p
+					th:text="Add"></p> </a>
+
+		</ul>
+	</div>
+</body>
+</html>

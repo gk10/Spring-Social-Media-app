@@ -11,6 +11,7 @@ You may need to update the application.properties file in src/main/resources/ to
 (Current using 'root' as the username and 'password' as the password)
 
 There are two premade account: Greg, Greg2
+
 Both accounts have their passwords set as 'greg'
 
 The 'Greg' account has a post made with an image, while the 'Greg2' has one without.

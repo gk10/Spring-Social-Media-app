@@ -7,29 +7,77 @@ import javax.persistence.*;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
-@Table(name = "friends")
 public class Friends {
-    @Id
-    private int userid;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer id;
+	
+	private Integer userid;
+	
+	private Integer friendid;
 
-    private int friendid;
-    
-    public int getFriends() {
-    	return friendid;
-    }
-    
-    public int getUser() {
-    	return userid;
-    }
-    
-    public void setUser(int i) {
-    	userid = i;
-    }
-    
-    public void setFriend(int i) {
-    	friendid = i;
-    }
-    
+	public int getuserid() {
+		return userid;
+	}
+	
+	public int getFriend() {
+		return friendid;
+	}
 
+
+	public void setUser(int i) {
+		this.userid = i;
+	}
+	
+	public void setFriend(int i) {
+		this.friendid = i;
+	}
+	
+	public int getID() {
+		return this.id;
+	}
 
 }
+
+/*
+package main.java.fbClone.Repos;
+
+//database follows https://docs.spring.io/spring-security/site/docs/3.0.x/reference/appendix-schema.html
+
+import javax.persistence.*;
+
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+@Entity
+public class Groups {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer id;
+	
+	private Integer userid;
+	
+	private Integer friendid;
+
+	public int getuserid() {
+		return userid;
+	}
+	
+	public int getFriend() {
+		return friendid;
+	}
+
+
+	public void setUser(int i) {
+		this.userid = i;
+	}
+	
+	public void setFriend(int i) {
+		this.friendid = i;
+	}
+	
+	public int getID() {
+		return this.id;
+	}
+
+}
+*/

@@ -8,27 +8,25 @@
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
 </head>
+<link rel="stylesheet" type="text/css" href="css/default.css">
 <div class="nav">
 	<a href="/" class="btn btn-light" role="button" data-toggle="tooltip"
-		data-placement="left" title="Home!"> Home </a>
-		<a href="/users" class="btn btn-light" role="button" data-toggle="tooltip"
-		data-placement="left" title="Users"> Users </a>
-		<a href="/friends" class="btn btn-light" role="button" data-toggle="tooltip"
-		data-placement="left" title="Friends"> Friends </a>
-		<a href="/groups" class="btn btn-light" role="button" data-toggle="tooltip"
+		data-placement="left" title="Home!"> Home </a> <a href="/users"
+		class="btn btn-light" role="button" data-toggle="tooltip"
+		data-placement="left" title="Users"> Users </a> <a href="/friends"
+		class="btn btn-light" role="button" data-toggle="tooltip"
+		data-placement="left" title="Friends"> Friends </a> <a href="/groups"
+		class="btn btn-light" role="button" data-toggle="tooltip"
 		data-placement="left" title="Groups"> Groups </a>
 </div>
 <h1 align="center">Facebook</h1>
 <body>
 	<div align="center">
-		<form method="post" action="/posts">
+		<form method="post" action="/posts" enctype="multipart/form-data">
 			<input type="text" name="task" placeholder="Post" size=30 /> <input
-				type="submit" value="Post" />
-		</form>
+				type="file" name="files" multiple /> <input type="submit"
+				value="Post" />
 
-		<form method="post" action="/search">
-			<input type="text" name="search" placeholder="Search" size=30 /> <input
-				type="submit" value="Search" />
 		</form>
 	</div>
 	<div align="center">
@@ -37,13 +35,14 @@
 			<li><a
 				th:href="@{users/{sectionId}(sectionId=${data.getName()})}"><p
 						th:text="${data.getName()}"></p> </a>
-				<p th:text="${data.getPost()}"></p>
-				<p th:text="${data.getTime()}"></p></li>
-				<a
-				th:href="@{friend/{sectionId}(sectionId=${data.getName()})}"><p
-						th:text="Add"></p> </a>
-				
+				<p th:text="${data.getPost()}"></p> <img th:src="${data.getMedia()}" /></li>
+			<a th:href="@{friend/{sectionId}(sectionId=${data.getName()})}"><p
+					th:text="Add"></p> </a>
+			<a th:href="@{like/{sectionId}(sectionId=${data.getId()})}"><p
+					th:text="Like"></p>  </a>
+					<p th:text="${data.getLikes()}"></p>
 		</ul>
 	</div>
+	
 </body>
 </html>

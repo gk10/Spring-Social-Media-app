@@ -4,6 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.springframework.transaction.annotation.Transactional;
+
 import java.sql.Timestamp;
 @Entity 
 public class Posts {
@@ -14,10 +17,14 @@ public class Posts {
     private String name;
     
     private String post;
+    
+    private String media;
 
     
     private Integer groupLocal;
     private Integer userLocal;
+    
+    private Integer likes =0;
 
 	public Integer getId() {
 		return id;
@@ -26,6 +33,14 @@ public class Posts {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	
+	public void setLikes(Integer like) {
+		this.likes = id;
+	}
+	
+	public int getLikes() {
+		return likes;
 	}
 	
 	public void setGroup(Integer id) {
@@ -58,6 +73,14 @@ public class Posts {
 	
 	public void setPost(String tweet) {
 		this.post = tweet;
+	}
+	
+	public void setMedia(String media) {
+		this.media = media;
+	}
+	
+	public String getMedia() {
+		return media;
 	}
 
 }

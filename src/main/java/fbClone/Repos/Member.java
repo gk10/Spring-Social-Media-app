@@ -9,6 +9,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @Entity
 public class Member {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer membership;
+	
 	private Integer groupid;
 	
 	private Integer userid;

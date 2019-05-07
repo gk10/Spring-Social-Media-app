@@ -26,12 +26,14 @@ public class Security extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
 		http.authorizeRequests()
+		.antMatchers("/login").permitAll()
 		.antMatchers("/").hasRole("USER")
-		.antMatchers("/register").permitAll()
-		.antMatchers("/friend/*").hasRole("USER")
-		.antMatchers("/groups").permitAll()
 		.and()
 		.httpBasic();	
+		
+		http.formLogin()
+		.loginPage("/login").permitAll()
+		.defaultSuccessUrl("/");
 		
 		
 		http.csrf().disable();

@@ -8,21 +8,25 @@
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
 </head>
+<link rel="stylesheet" type="text/css" href="css/default.css">
 <div class="nav">
 	<a href="/" class="btn btn-light" role="button" data-toggle="tooltip"
 		data-placement="left" title="Home!"> Home </a>
+		<p>FACEBOOK</p>
+		<form name="f" method="post" action="login">
+			<input type="text" name="username" placeholder="Username" size=30 />
+			<input type="password" name="password" placeholder="Password" size=30 />
+			<input type="submit" value="Login">
+		</form>
 </div>
-<h1 align="center">Register an account</h1>
+<h1 align="center">Login</h1>
 <body>
 	<div align="center">
 		<form method="post" action="/createaccount">
 			<input type="text" name="username" placeholder="Username" size=30 />
 			<input type="password" name="password" placeholder="Password" size=30 />
-			<input type="submit" />
+			<input type="submit" value="Create an account" />
 		</form>
-	</div>
-	<div align="center">
-		<a href="/login">Already have an account?</a>
 	</div>
 </body>
 </html>

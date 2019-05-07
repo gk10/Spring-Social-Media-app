@@ -9,22 +9,24 @@
 	crossorigin="anonymous">
 </head>
 <link rel="stylesheet" type="text/css" href="css/default.css">
-<div class="nav">
-	<a href="/" class="btn btn-light" role="button" data-toggle="tooltip"
-		data-placement="left" title="Home!"> Home </a>
-		<p>FACEBOOK</p>
+<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow" rel="stylesheet">
+<div class="nav" id='login'>
 		<form name="f" method="post" action="login">
 			<input type="text" name="username" placeholder="Username" size=30 />
 			<input type="password" name="password" placeholder="Password" size=30 />
 			<input type="submit" value="Login">
 		</form>
 </div>
-<h1 align="center">Login</h1>
+<h1 id='title' align="center">FACEBOOK</h1>
 <body>
 	<div align="center">
-		<form method="post" action="/createaccount">
+		<form method="post" action="/createaccount" id='register'>
+			<div class='form-group'>
 			<input type="text" name="username" placeholder="Username" size=30 />
+			</div>
+			<div class='form-group'>
 			<input type="password" name="password" placeholder="Password" size=30 />
+			</div>
 			<input type="submit" value="Create an account" />
 		</form>
 	</div>
